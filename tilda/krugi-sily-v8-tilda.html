@@ -379,6 +379,25 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
   .photo .pimg{background-position:74% 50% !important}
   footer{padding-bottom:96px}
 }
+
+/* signup popup with messenger links */
+.zp{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(18,16,14,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.zp:target,.zp.open{opacity:1;visibility:visible}
+.zp-box{position:relative;width:100%;max-width:460px;background:var(--paper);color:var(--ink);border-radius:20px;padding:34px 26px 26px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);transform:translateY(16px);transition:transform .35s}
+.zp:target .zp-box,.zp.open .zp-box{transform:none}
+.zp-x{position:absolute;top:10px;right:12px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;color:var(--muted);text-decoration:none;border-radius:50%}
+.zp-x:hover{background:rgba(0,0,0,.06)}
+.zp-k{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--goldt)}
+.zp-t{font-family:'Tenor Sans',sans-serif;font-weight:400;text-transform:uppercase;font-size:26px;line-height:1.1;margin:10px 0 0}
+.zp-d{margin:12px 0 0;color:var(--ink2);font-size:15px;line-height:1.55}
+.zp-l{display:grid;gap:10px;margin-top:22px}
+.zp-l a{display:flex;align-items:center;gap:14px;min-height:58px;padding:0 18px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:16px;transition:transform .2s,border-color .2s}
+.zp-l a:hover{transform:translateY(-2px);border-color:var(--gold)}
+.zp-l i{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px;font-weight:800;color:#fff}
+.zp-l small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
+.zp-l a::after{content:'→';margin-left:auto;color:var(--gold)}
+.zp-n{margin:16px 0 0;font-size:13px;color:var(--muted)}
+html.zp-lock,html.zp-lock body{overflow:hidden}
 /* ===== variant 8: brown + cold blue ===== */
 :root{--line:#CBD3DA}
 .dark2{background:#24323F}
@@ -412,7 +431,7 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
     <a href="#hosts">Ведущие</a>
     <a href="#price">Участие</a>
   </nav>
-  <a class="btn btn-c" href="#popup:myform">Записаться</a>
+  <a class="btn btn-c" href="#zapis">Записаться</a>
 </header>
 
 <!-- HERO -->
@@ -427,7 +446,7 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
       <p class="tag">Мир не стал <span class="strike">страшнее</span>.<br><span class="truth">Он стал правдивее.</span></p>
       <p class="lead">Пять дней практической работы с кругами силы — физическим, эфирным, астральным, ментальным — и выход к пятому кругу, «Я выбираю». Чтобы перестать жить на автомате и вернуть себе выбор.</p>
       <div class="btns">
-        <a class="btn btn-c" href="#popup:myform">Записаться на семинар <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-c" href="#zapis">Записаться на семинар <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn btn-o" href="#circles">Программа</a>
       </div>
       <div class="meta"><span>г. Белореченск, Краснодарский край</span><span>5 дней · 10:00–18:00</span><span>80% практики</span></div>
@@ -638,7 +657,7 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
     </div>
     <div class="facts rv d2">
       <div><span class="k">Когда</span><b>26–30 января 2027</b><small>5 дней, 10:00–18:00</small></div>
-      <div><span class="k">Где</span><b>Офис в центре города</b><small>г. Белореченск, Краснодарский край · [адрес]</small></div>
+      <div><span class="k">Где</span><b>Офис в центре города</b><small>г. Белореченск, ул. Щорса, 64</small></div>
       <div><span class="k">Природа</span><b>Один день — выезд</b><small>Предварительно парк Букреева («Гончарка»)</small></div>
       <div><span class="k">Группа</span><b>До 30 человек</b><small>80% времени — практика</small></div>
     </div>
@@ -667,9 +686,8 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
         <div class="sum">36 000 ₽</div>
         <div class="pline early"><span>Ранняя цена при полной оплате до 10 декабря</span><b>34 000 ₽</b></div>
         <div class="pline"><span>Предоплата — закрепляет место</span><b>8 000 ₽</b></div>
-        <div class="gift"><i aria-hidden="true">✦</i><div><b>Подарок первым двум участникам, оплатившим участие полностью:</b> бесплатная консультация у Светланы Анатольевны или Анатолия Яковлевича.</div></div>
         <div class="gift"><i aria-hidden="true">✦</i><div><b>Первым двум участникам, оплатившим участие полностью, — подарок:</b> бесплатная консультация у Светланы Анатольевны или Анатолия Яковлевича.</div></div>
-        <div class="btns" style="margin-top:28px"><a class="btn btn-c" href="#order:Предоплата — семинар «Круги силы»=8000">Оплатить предоплату онлайн <span class="arrow" aria-hidden="true">→</span></a><a class="btn btn-o" href="#popup:myform">Задать вопрос</a></div>
+        <div class="btns" style="margin-top:28px"><a class="btn btn-c" href="#order:Предоплата — семинар «Круги силы»=8000">Оплатить предоплату онлайн <span class="arrow" aria-hidden="true">→</span></a><a class="btn btn-o" href="#zapis">Задать вопрос</a></div>
       </div>
       <div class="pbox side rv d1">
         <div class="label">Как забронировать</div>
@@ -705,7 +723,7 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
     <div style="margin-top:28px;border-top:1px solid var(--line)">
       <details><summary>Я новичок. Мне подойдёт?</summary><p>Да. Семинар подходит всем — и тем, кто только начинает замечать свои автоматизмы, и тем, кто уже многое чувствует, но не понимает, куда двигаться дальше.</p></details>
       <details><summary>Есть ли противопоказания?</summary><p>Наркотическая и алкогольная зависимость. Психиатрические диагнозы обсуждаем индивидуально. Перед семинаром каждому участнику пришлём анкету личным сообщением.</p></details>
-      <details><summary>Где будет проходить семинар?</summary><p>В нашем офисе в центре г. Белореченска. Один день — выезд на природу, предварительно в парк Букреева («Гончарка»).</p></details>
+      <details><summary>Где будет проходить семинар?</summary><p>В нашем офисе в центре г. Белореченска: ул. Щорса, 64. Один день — выезд на природу, предварительно в парк Букреева («Гончарка»).</p></details>
       <details><summary>Где жить и как питаться?</summary><p>Проживание и питание — за свой счёт. Поможем с размещением: пришлём варианты гостиниц и квартир в центре (Сити Парк, Афродита, Яппи, Сицилия). Питание — доставкой.</p></details>
       <details><summary>Сколько будет участников?</summary><p>До 30 человек.</p></details>
       <details><summary>Что если я не смогу приехать?</summary><p>[Условия возврата или переноса предоплаты]</p></details>
@@ -722,14 +740,29 @@ footer{padding:28px 0 40px;font-size:14px;color:var(--muted);display:flex;flex-w
     <div class="label rv" style="color:var(--champ)">26–30 января 2027 · г. Белореченск</div>
     <h2 class="h2 rv d1" style="max-width:640px;font-size:clamp(36px,5vw,72px)">Мир меняется</h2>
     <p class="lead rv d2" style="max-width:560px;margin-top:20px;color:#F7F0E3;font-weight:600;font-size:clamp(18px,1.6vw,22px)">Один человек загорается — и свет передаётся дальше. У вас есть возможность меняться вместе с миром — на своих условиях.</p>
-    <div class="btns rv d3"><a class="btn btn-c" href="#popup:myform">Записаться на семинар <span class="arrow" aria-hidden="true">→</span></a></div>
+    <div class="btns rv d3"><a class="btn btn-c" href="#zapis">Записаться на семинар <span class="arrow" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
 
-<div class="wrap"><footer><span>«Круги силы» · Светлана и Анатолий Киричук</span><span>+7 918 215 26 04</span></footer></div>
+<div class="wrap"><footer><span>«Круги силы» · Светлана и Анатолий Киричук</span><span>+7 918 215 26 04</span><span>г. Белореченск, ул. Щорса, 64</span></footer></div>
 
-<div class="mcta hide" id="mcta"><a class="btn btn-c" href="#popup:myform">Записаться на семинар</a></div>
+<div class="zp" id="zapis" role="dialog" aria-modal="true" aria-labelledby="zpT">
+  <a class="zp-bg" href="#!" aria-hidden="true" tabindex="-1" style="position:absolute;inset:0"></a>
+  <div class="zp-box">
+    <a class="zp-x" href="#!" aria-label="Закрыть">×</a>
+    <div class="zp-k">26–30 января 2027 · г. Белореченск, ул. Щорса, 64</div>
+    <div class="zp-t" id="zpT">Запись на семинар «Круги силы»</div>
+    <p class="zp-d">Напишите нам в удобный мессенджер. Ответим на вопросы, расскажем подробности и забронируем ваше место.</p>
+    <div class="zp-l">
+      <a href="https://wa.me/79181551495?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%81%D0%B5%D0%BC%D0%B8%D0%BD%D0%B0%D1%80%20%C2%AB%D0%9A%D1%80%D1%83%D0%B3%D0%B8%20%D1%81%D0%B8%D0%BB%D1%8B%C2%BB%2026%E2%80%9330%20%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F.%20%D0%A0%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5." target="_blank" rel="noopener"><i style="background:#25D366">W</i><span>WhatsApp<small>Сообщение уже заготовлено — просто отправьте</small></span></a>
+      <a href="https://t.me/rekvizit_tetris" target="_blank" rel="noopener"><i style="background:#2AABEE">T</i><span>Telegram<small>Напишите «Хочу на семинар»</small></span></a>
+      <a href="https://max.ru/u/f9LHodD0cOKatu73MVcVciPspwZCPWl6ZCEb9EgAlWcSMF2DBS9i6bK87uo" target="_blank" rel="noopener"><i style="background:linear-gradient(135deg,#3B7BFF,#8A3BFF)">M</i><span>MAX<small>Напишите «Хочу на семинар»</small></span></a>
+    </div>
+    <p class="zp-n">Или позвоните: +7 918 215 26 04</p>
+  </div>
+</div>
+<div class="mcta hide" id="mcta"><a class="btn btn-c" href="#zapis">Записаться на семинар</a></div>
 
 <script>
 (function(){
@@ -827,4 +860,19 @@ cards.forEach(function(c){
   m.addEventListener('ended',function(){c.classList.remove('on','paused')});
   var bar=c.querySelector('.abar i');if(bar)m.addEventListener('timeupdate',function(){bar.style.width=(m.currentTime/(m.duration||1)*100)+'%'});
 });})();
+</script>
+<script>
+(function(){
+  var zp = document.getElementById('zapis'); if (!zp) return;
+  function open(e){ if (e) e.preventDefault(); zp.classList.add('open'); document.documentElement.classList.add('zp-lock'); }
+  function close(e){ if (e) e.preventDefault(); zp.classList.remove('open'); document.documentElement.classList.remove('zp-lock'); if (location.hash === '#zapis') { try { history.replaceState(null, '', location.pathname + location.search); } catch (x) {} } }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a'); if (!a) return;
+    var href = a.getAttribute('href');
+    if (href === '#zapis') open(e);
+    else if (href === '#!' && zp.contains(a)) close(e);
+  }, true);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  if (location.hash === '#zapis') open();
+})();
 </script>
